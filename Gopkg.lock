@@ -43,9 +43,10 @@
   revision = "fd3eaa146cbb5c89ce187c275fb79bd3a36a5ffc"
 
 [[projects]]
-  digest = "1:fd78c4f6482e277b720badac057b2d4312779120b45625051529107afc117a71"
+  digest = "1:384782969470f10c25fb53de8d9d264a0480b4cf65c62689d29182fb56bda5cd"
   name = "google.golang.org/api"
   packages = [
+    "drive/v3",
     "gensupport",
     "googleapi",
     "googleapi/internal/uritemplates",
@@ -81,6 +82,7 @@
     "golang.org/x/net/context",
     "golang.org/x/oauth2",
     "golang.org/x/oauth2/google",
+    "google.golang.org/api/drive/v3",
     "google.golang.org/api/sheets/v4",
   ]
   solver-name = "gps-cdcl"

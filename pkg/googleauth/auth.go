@@ -6,6 +6,7 @@ import (
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
+	"google.golang.org/api/drive/v3"
 	"google.golang.org/api/sheets/v4"
 	"io/ioutil"
 	"log"
@@ -14,9 +15,10 @@ import (
 )
 
 var SpreadSheetsService *sheets.Service
+var DriveService *drive.Service
 
-func getClient(config *oauth2.Config) *http.Client {
-	tokFile := os.Getenv("GOPATH") + "/src/pagespeed_reader/configs/token.json"
+func getClient(config *oauth2.Config, googleApps string) *http.Client {
+	tokFile := os.Getenv("GOPATH") + "/src/pagespeed_reader/configs/" + googleApps + "/token.json"
 	tok, err := tokenFromFile(tokFile)
 	if err != nil {
 		tok = getTokenFromWeb(config)
@@ -64,7 +66,7 @@ func saveToken(path string, token *oauth2.Token) {
 }
 
 func InitializeSpreadSheets() {
-	b, err := ioutil.ReadFile(os.Getenv("GOPATH") + "/src/pagespeed_reader/configs/credentials.json")
+	b, err := ioutil.ReadFile(os.Getenv("GOPATH") + "/src/pagespeed_reader/configs/spreadsheet/credentials.json")
 	if err != nil {
 		log.Fatalf("Unable to read client secret file: %v", err)
 	}
@@ -74,7 +76,7 @@ func InitializeSpreadSheets() {
 		log.Fatalf("Unable to parse client secret file to config: %v", err)
 	}
 
-	client := getClient(config)
+	client := getClient(config, "spreadsheet")
 
 	srv, err := sheets.New(client)
 	if err != nil {
@@ -82,4 +84,25 @@ func InitializeSpreadSheets() {
 	}
 
 	SpreadSheetsService = srv
+}
+
+func InitializeDrive() {
+	b, err := ioutil.ReadFile(os.Getenv("GOPATH") + "/src/pagespeed_reader/configs/drive/credentials.json")
+	if err != nil {
+		log.Fatalf("Unable to read client secret file: %v", err)
+	}
+
+	config, err := google.ConfigFromJSON(b, drive.DriveMetadataReadonlyScope)
+	if err != nil {
+		log.Fatalf("Unable to parse client secret file to config: %v", err)
+	}
+
+	client := getClient(config, "drive")
+
+	srv, err := drive.New(client)
+	if err != nil {
+		log.Fatalf("Unable to retrieve Sheets client: %v", err)
+	}
+
+	DriveService = srv
 }
