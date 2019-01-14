@@ -1,0 +1,14 @@
+{
+	"Pagespeed_Url": "https://www.googleapis.com/pagespeedonline/v5/runPagespeed",
+	"Pagespeed_API_Key": "AIzaSyBUHb7ELbAzT0vHMwuNTHtUuVLCAD5k5Qs",
+	"Googlesheets_Client_ID": "743640539642-h1knbf4vdo7qc0p3gpi6se7h1rf0ghq4.apps.googleusercontent.com",
+	"Googlesheets_Client_Secret": "nQFEaeub8WpcaOMEUNrcNLku",
+	"WEB_URL" : [
+		"https://kaskus.co.id",
+		"https://kaskus.co.id/forum"
+	],
+	"WAP_URL" : [
+		"https://m.kaskus.co.id",
+		"https://m.kaskus.co.id/forum"
+	]
+}
