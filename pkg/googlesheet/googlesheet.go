@@ -1,4 +1,4 @@
-package googlesheets
+package googleSheetLibrary
 
 import (
 	"fmt"
@@ -6,6 +6,6 @@ import (
 )
 
 func TestUseService() {
-	googleauth.SpreadSheetsService = nil
+	googleAuthLibrary.SpreadSheetsService = nil
 	fmt.Println("Write Data to 201901 - Pagespeed Monitoring Report - Sheet (11)")
 }

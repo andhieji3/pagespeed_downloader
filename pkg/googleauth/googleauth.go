@@ -1,4 +1,4 @@
-package googleauth
+package googleAuthLibrary
 
 import (
 	"encoding/json"
@@ -71,7 +71,7 @@ func InitializeSpreadSheets() {
 		log.Fatalf("Unable to read client secret file: %v", err)
 	}
 
-	config, err := google.ConfigFromJSON(b, "https://www.googleapis.com/auth/spreadsheets.readonly")
+	config, err := google.ConfigFromJSON(b, sheets.SpreadsheetsScope)
 	if err != nil {
 		log.Fatalf("Unable to parse client secret file to config: %v", err)
 	}
@@ -92,7 +92,7 @@ func InitializeDrive() {
 		log.Fatalf("Unable to read client secret file: %v", err)
 	}
 
-	config, err := google.ConfigFromJSON(b, drive.DriveMetadataReadonlyScope)
+	config, err := google.ConfigFromJSON(b, drive.DriveScope+" "+drive.DriveAppdataScope+" "+drive.DriveFileScope)
 	if err != nil {
 		log.Fatalf("Unable to parse client secret file to config: %v", err)
 	}
@@ -105,4 +105,16 @@ func InitializeDrive() {
 	}
 
 	DriveService = srv
+}
+
+func GetToken(file string) (interface{}, error) {
+	f, err := os.Open(file)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+	var data interface{}
+	err = json.NewDecoder(f).Decode(&data)
+
+	return data, err
 }
