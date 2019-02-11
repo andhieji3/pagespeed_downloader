@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"pagespeed_reader/pkg/configs"
 	"pagespeed_reader/pkg/googleauth"
 	"pagespeed_reader/pkg/googledrive"
@@ -10,13 +9,13 @@ import (
 )
 
 func main() {
-	result := make(map[string]map[string]string)
+	result := make(map[string]map[int]string)
 	configuration := configs.GetConfiguration()
 	var webUrl []string
 	var wapUrl []string
 
-	result["desktop"] = map[string]string{}
-	result["mobile"] = map[string]string{}
+	result["desktop"] = map[int]string{}
+	result["mobile"] = map[int]string{}
 
 	webUrl = configuration.WEB_URL
 	wapUrl = configuration.WAP_URL
@@ -27,7 +26,6 @@ func main() {
 	googleAuthLibrary.InitializeSpreadSheets()
 	googleAuthLibrary.InitializeDrive()
 
-	googleSheetLibrary.TestUseService()
 	fileId := googleDriveLibrary.GetFileId()
-	fmt.Println(fileId)
+	googleSheetLibrary.WriteReport(fileId, result)
 }

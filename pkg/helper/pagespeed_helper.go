@@ -5,14 +5,14 @@ import (
 	"pagespeed_reader/pkg/pagespeed_downloader"
 )
 
-func GetPagespeedData(urls []string, pagespeedUrl string, apiKey string, platform string) map[string]string {
+func GetPagespeedData(urls []string, pagespeedUrl string, apiKey string, platform string) map[int]string {
 	var value string
-	result := make(map[string]string)
+	result := make(map[int]string)
 
-	for _, url := range urls {
+	for index, url := range urls {
 		downloaded := pagespeed_downloader.Download(pagespeedUrl, apiKey, url, platform)
 		value = pagespeed_downloader.GetScore(downloaded)
-		result[url] = value
+		result[index] = value
 		fmt.Println(url + " : " + value)
 	}
 
