@@ -48,7 +48,8 @@ func WriteReport(fileId string, report map[string]map[int]string) {
 
 	for _, data := range report {
 		for _, value := range data {
-			convertedValue, err := global_functions.StringToInt(value)
+			convertedValue, err := global_functions.StringToFloat(value)
+
 			if err != nil {
 				log.Fatalf("Error when converting data", err)
 			}
