@@ -5,6 +5,7 @@ import (
 	"google.golang.org/api/drive/v3"
 	"pagespeed_reader/pkg/configs"
 	"pagespeed_reader/pkg/googleauth"
+	"pagespeed_reader/pkg/googlesheet"
 	"strings"
 	"time"
 )
@@ -44,7 +45,8 @@ func GetFileId() string {
 	}
 
 	if fileExist == 0 {
-		copyFileTemplate(templateId, fileName)
+		fileId = copyFileTemplate(templateId, fileName)
+		googleSheetLibrary.ConfigureNewFile(fileId)
 	}
 
 	return fileId
@@ -79,6 +81,8 @@ func copyFileTemplate(templateId string, fileName string) string {
 	if err != nil {
 		fmt.Println(err)
 	}
+
+	googleSheetLibrary.ConfigureNewFile(driveFile.Id)
 
 	return driveFile.Id
 }
