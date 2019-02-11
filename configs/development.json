@@ -1,0 +1,15 @@
+{
+	"Pagespeed_Url": "https://www.googleapis.com/pagespeedonline/v5/runPagespeed",
+	"Pagespeed_API_Key": "AIzaSyCVrULgeUhRGRU6qjSF8LNADAqiCXZDJCo",
+	"Googlesheets_Template_ID": "1GOfQgBwBPchG_qLyiEQ6VoctMVaapq_ok96KpDgf4PM",
+	"GoogleDrive_HTTP_URL": "https://www.googleapis.com/drive/v3",
+	"GoogleDrive_Main_Directory" : "PageSpeed (Cron)",
+	"WEB_URL" : [
+		"https://kaskus.co.id",
+		"https://kaskus.co.id/forum"
+	],
+	"WAP_URL" : [
+		"https://m.kaskus.co.id",
+		"https://m.kaskus.co.id/forum"
+	]
+}
