@@ -76,13 +76,11 @@ func getMainDirectoryID() (string, error) {
 
 func copyFileTemplate(templateId string, fileName string) string {
 	newFile := &drive.File{Name: fileName}
-
 	driveFile, err := googleAuthLibrary.DriveService.Files.Copy(templateId, newFile).Do()
+
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	googleSheetLibrary.ConfigureNewFile(driveFile.Id)
 
 	return driveFile.Id
 }
