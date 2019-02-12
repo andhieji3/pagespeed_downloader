@@ -59,5 +59,5 @@ func WriteReport(fileId string, report map[string]map[int]string) {
 	}
 
 	googleAuthLibrary.SpreadSheetsService.Spreadsheets.Values.Update(fileId, cellRange, vRange).ValueInputOption("RAW").Context(ctx).Do()
-	fmt.Println("Success report to file " + fileId)
+	fmt.Println("Success write report to file " + fileId)
 }
