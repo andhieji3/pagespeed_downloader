@@ -17,7 +17,11 @@
 * Generate credential.json for Sheets API [Link](https://developers.google.com/sheets/api/quickstart/go), download and move it to **$GOPATH/src/pagespeed_reader/configs/spreadsheet**
 
 ## Build & Run It
-* Run this command
+* Download all dependency using DEP
+```
+> dep ensure
+```
+* Build using this command
 ```
 go build -o $GOPATH/src/pagespeed_reader/bin/pagespeed_reader $GOPATH/src/pagespeed_reader/cmd/pagespeed_reader/main.go
 ```
