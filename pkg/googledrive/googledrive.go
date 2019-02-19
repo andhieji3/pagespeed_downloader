@@ -47,6 +47,7 @@ func GetFileId() string {
 	if fileExist == 0 {
 		fileId = copyFileTemplate(templateId, fileName)
 		googleSheetLibrary.ConfigureNewFile(fileId)
+		shareFile(fileId)
 	}
 
 	return fileId
@@ -83,4 +84,11 @@ func copyFileTemplate(templateId string, fileName string) string {
 	}
 
 	return driveFile.Id
+}
+
+func shareFile(fileId string) {
+	configuration := configs.GetConfiguration()
+	permission := &drive.Permission{Type: "user", Role: "writer", EmailAddress: configuration.Shared_Email}
+	googleAuthLibrary.DriveService.Permissions.Create(fileId, permission).Do()
+	fmt.Println("Shared file " + fileId + " to " + configuration.Shared_Email)
 }
