@@ -13,6 +13,7 @@ type Configuration struct {
 	Googlesheets_Template_ID   string   `json:"Googlesheets_Template_ID"`
 	GoogleDrive_HTTP_URL       string   `json:"GoogleDrive_HTTP_URL"`
 	GoogleDrive_Main_Directory string   `json:"GoogleDrive_Main_Directory"`
+	Shared_Email               string   `json:"Shared_Email"`
 	WEB_URL                    []string `json:"WEB_URL"`
 	WAP_URL                    []string `json:"WAP_URL"`
 }
