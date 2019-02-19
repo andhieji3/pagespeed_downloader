@@ -1,7 +1,8 @@
-## System Requirement
+## Requirement
 * OS : Windows/Mac OS/Linux
 * [Go Compiler](https://golang.org/doc/install)
 * [Dep (Go Dependency Management Tool)](https://github.com/golang/dep)
+* Directory **PageSpeed (Cron)** in your google drive
 
 ## Setting
 * Define your **$GOPATH** environment & workspace [Tutorial](https://dasarpemrogramangolang.novalagung.com/3-gopath-dan-workspace.html), don't forget 3 core directory [bin, pkg, src]
