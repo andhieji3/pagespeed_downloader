@@ -1,0 +1,18 @@
+{
+	"Pagespeed_Url": "https://www.googleapis.com/pagespeedonline/v5/runPagespeed",
+	"Pagespeed_API_Key": "Get Your Own Key",
+	"Googlesheets_Template_ID": "Your Google Sheet File ID",
+	"GoogleDrive_HTTP_URL": "https://www.googleapis.com/drive/v3",
+	"GoogleDrive_Main_Directory" : "PageSpeed (Cron)",
+	"Shared_Email" : "testemail@testemail.com",
+	"WEB_URL" : [
+		"https://kaskus.co.id",
+		"https://tokopedia.com",
+		"https://traveloka.com"
+	],
+	"WAP_URL" : [
+		"https://m.kaskus.co.id",
+		"https://m.tokopedia.com",
+		"https://m.traveloka.com"
+	]
+}
